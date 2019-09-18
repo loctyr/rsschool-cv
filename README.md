@@ -1,1 +1,1 @@
-# rsschool-cv
+[My CV](https://loctyr.github.io/rsschool-cv/cv)
