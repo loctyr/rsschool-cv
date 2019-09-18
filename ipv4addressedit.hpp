@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Dmitriy Russkikh <russkih.dv@infotek.ru>
+ * Copyright (c) Dmitriy Russkikh
  * All rights reserved
  */
 

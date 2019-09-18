@@ -1,9 +1,9 @@
 /*
- * Copyright (c) Dmitriy Russkikh <russkih.dv@infotek.ru>
+ * Copyright (c) Dmitriy Russkikh
  * All rights reserved
  */
 
-#include "ipv4addressedit.h"
+#include "ipv4addressedit.hpp"
 #include <QLineEdit>
 #include <QKeyEvent>
 #include <QValidator>
