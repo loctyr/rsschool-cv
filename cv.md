@@ -16,47 +16,46 @@
 #include <QRegExpValidator>
 
 /*!
- * \brief Класс IpV4AddressEdit предназначен для ввода с контролем правильности IP адресов 4 версии
- * \author Дмитрий Русских
+ * \brief РљР»Р°СЃСЃ IpV4AddressEdit РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅ РґР»СЏ РІРІРѕРґР° СЃ РєРѕРЅС‚СЂРѕР»РµРј РїСЂР°РІРёР»СЊРЅРѕСЃС‚Рё IP Р°РґСЂРµСЃРѕРІ 4 РІРµСЂСЃРёРё
+ * \author Р”РјРёС‚СЂРёР№ Р СѓСЃСЃРєРёС…
  * \version alpha
- * \date Октябрь 2017 года
  */
 
 class IpV4AddressEdit : public QLineEdit {
     Q_OBJECT
 public:
     /*!
-     * \brief Конструктор аналогичный QLineEdit
-     * \param parent_ Указатель на родительский QWidget
+     * \brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р°РЅР°Р»РѕРіРёС‡РЅС‹Р№ QLineEdit
+     * \param parent_ РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЂРѕРґРёС‚РµР»СЊСЃРєРёР№ QWidget
      */
     explicit IpV4AddressEdit(QWidget* parent_ = nullptr): QLineEdit(parent_), rv__(QRegExp(regExpStr), this) {init();}
     /*!
-     * \brief Конструктор аналогичный QLineEdit
-     * \param str_ Строка текста
-     * \param parent_ Указатель на родительский QWidget
+     * \brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р°РЅР°Р»РѕРіРёС‡РЅС‹Р№ QLineEdit
+     * \param str_ РЎС‚СЂРѕРєР° С‚РµРєСЃС‚Р°
+     * \param parent_ РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЂРѕРґРёС‚РµР»СЊСЃРєРёР№ QWidget
      */
     explicit IpV4AddressEdit(const QString &str_, QWidget* parent_ = nullptr) : QLineEdit(str_, parent_), rv__(QRegExp(regExpStr), this) {init();}
     /*!
-     * \brief Функция проверки валидности введенных данных
-     * \return Истина -- данные валидные, Ложь -- данные не валидные
+     * \brief Р¤СѓРЅРєС†РёСЏ РїСЂРѕРІРµСЂРєРё РІР°Р»РёРґРЅРѕСЃС‚Рё РІРІРµРґРµРЅРЅС‹С… РґР°РЅРЅС‹С…
+     * \return РСЃС‚РёРЅР° -- РґР°РЅРЅС‹Рµ РІР°Р»РёРґРЅС‹Рµ, Р›РѕР¶СЊ -- РґР°РЅРЅС‹Рµ РЅРµ РІР°Р»РёРґРЅС‹Рµ
      */
     bool isValid();
 public:
-    static const QString regExpStr; ///< Строка с регулярным выражением для проверки корректности вводимых данных
-    static const QString separator; ///< Разделитель для блоков IP адреса
-    static const short maxElementValueForAddSeparator; ///< Максимальное значение элемента при превышении которого автоматически добавляем разделитель
-    static const short maxCharCountInGroup; ///< Количество символов группе (между разделителями)
+    static const QString regExpStr; ///< РЎС‚СЂРѕРєР° СЃ СЂРµРіСѓР»СЏСЂРЅС‹Рј РІС‹СЂР°Р¶РµРЅРёРµРј РґР»СЏ РїСЂРѕРІРµСЂРєРё РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё РІРІРѕРґРёРјС‹С… РґР°РЅРЅС‹С…
+    static const QString separator; ///< Р Р°Р·РґРµР»РёС‚РµР»СЊ РґР»СЏ Р±Р»РѕРєРѕРІ IP Р°РґСЂРµСЃР°
+    static const short maxElementValueForAddSeparator; ///< РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїСЂРё РїСЂРµРІС‹С€РµРЅРёРё РєРѕС‚РѕСЂРѕРіРѕ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РґРѕР±Р°РІР»СЏРµРј СЂР°Р·РґРµР»РёС‚РµР»СЊ
+    static const short maxCharCountInGroup; ///< РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ РіСЂСѓРїРїРµ (РјРµР¶РґСѓ СЂР°Р·РґРµР»РёС‚РµР»СЏРјРё)
 protected:
     /*!
-     * \brief Перегруженная функция обрабатывающая нажатие на клавишу
-     * \param key_ Указатель на событие нажатой клавиши
+     * \brief РџРµСЂРµРіСЂСѓР¶РµРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РѕР±СЂР°Р±Р°С‚С‹РІР°СЋС‰Р°СЏ РЅР°Р¶Р°С‚РёРµ РЅР° РєР»Р°РІРёС€Сѓ
+     * \param key_ РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃРѕР±С‹С‚РёРµ РЅР°Р¶Р°С‚РѕР№ РєР»Р°РІРёС€Рё
      */
     void keyPressEvent(QKeyEvent *key_) Q_DECL_OVERRIDE;
 private:
-    QRegExpValidator rv__; ///< Регулярное выражение для проверки корректности вводимых данных
+    QRegExpValidator rv__; ///< Р РµРіСѓР»СЏСЂРЅРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ РґР»СЏ РїСЂРѕРІРµСЂРєРё РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё РІРІРѕРґРёРјС‹С… РґР°РЅРЅС‹С…
 
     /*!
-     * \brief Метод инициализации для вызова из констрктора
+     * \brief РњРµС‚РѕРґ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РґР»СЏ РІС‹Р·РѕРІР° РёР· РєРѕРЅСЃС‚СЂРєС‚РѕСЂР°
      */
     void init();
 };
@@ -93,7 +92,7 @@ bool IpV4AddressEdit::isValid() {
 }
 
 void IpV4AddressEdit::keyPressEvent(QKeyEvent *key_) {
-    if (cursorPosition() == text().length()) { //обрабатываем нахождение в конце строки
+    if (cursorPosition() == text().length()) { //РѕР±СЂР°Р±Р°С‚С‹РІР°РµРј РЅР°С…РѕР¶РґРµРЅРёРµ РІ РєРѕРЅС†Рµ СЃС‚СЂРѕРєРё
         QString tmp_text = text();
         int crPos = 0;
 
@@ -105,9 +104,9 @@ void IpV4AddressEdit::keyPressEvent(QKeyEvent *key_) {
                 rv__.validate(tmp_text3, crPos2) != QValidator::Invalid) {
                 setText(tmp_text + separator);
             } else {
-                crPos2 = tmp_text2.lastIndexOf(separator);// находим предыдущий сепаратор для разделения разрядов адреса
+                crPos2 = tmp_text2.lastIndexOf(separator);// РЅР°С…РѕРґРёРј РїСЂРµРґС‹РґСѓС‰РёР№ СЃРµРїР°СЂР°С‚РѕСЂ РґР»СЏ СЂР°Р·РґРµР»РµРЅРёСЏ СЂР°Р·СЂСЏРґРѕРІ Р°РґСЂРµСЃР°
                 crPos2++;
-                if ((tmp_text2.mid(crPos2).toInt() > maxElementValueForAddSeparator) //если начиная с числа maxElementValueForAddSeparator нажали любую цифру то точно надо ставить разделитель
+                if ((tmp_text2.mid(crPos2).toInt() > maxElementValueForAddSeparator) //РµСЃР»Рё РЅР°С‡РёРЅР°СЏ СЃ С‡РёСЃР»Р° maxElementValueForAddSeparator РЅР°Р¶Р°Р»Рё Р»СЋР±СѓСЋ С†РёС„СЂСѓ С‚Рѕ С‚РѕС‡РЅРѕ РЅР°РґРѕ СЃС‚Р°РІРёС‚СЊ СЂР°Р·РґРµР»РёС‚РµР»СЊ
                     ||
                     (tmp_text2.mid(crPos2).length() >= maxCharCountInGroup)
                 ) {
@@ -126,7 +125,7 @@ void IpV4AddressEdit::keyPressEvent(QKeyEvent *key_) {
             if (rv__.validate(tmp_text, crPos) != QValidator::Invalid)
                 setText(tmp_text);
         }
-    } else {//если это не конец строки
+    } else {//РµСЃР»Рё СЌС‚Рѕ РЅРµ РєРѕРЅРµС† СЃС‚СЂРѕРєРё
         int crPos = 0;
         if ((key_->key() >= Qt::Key_0 && key_->key() <= Qt::Key_9) || (Qt::Key_Delete == key_->key()) || (Qt::Key_Backspace == key_->key())) {
             if (selectedText().isEmpty()) {
@@ -145,10 +144,10 @@ void IpV4AddressEdit::keyPressEvent(QKeyEvent *key_) {
                         left += '.';
                         right = right.mid(1);
                     }
-                    if ((left.length() > 0) && (right.mid(1).length() > 0) && (QChar('.') == left.at(left.length()-1)) && (QChar('.') == right.mid(1).at(0))) {//если две точки подряд то улаляем одну
+                    if ((left.length() > 0) && (right.mid(1).length() > 0) && (QChar('.') == left.at(left.length()-1)) && (QChar('.') == right.mid(1).at(0))) {//РµСЃР»Рё РґРІРµ С‚РѕС‡РєРё РїРѕРґСЂСЏРґ С‚Рѕ СѓР»Р°Р»СЏРµРј РѕРґРЅСѓ
                         right = right.mid(1);
                     }
-                    if (0 == left.length() && right.mid(1).length() > 0 && (QChar('.') == right.mid(1).at(0))) {//если после удаления первой станет точка то ее тоже удаляем
+                    if (0 == left.length() && right.mid(1).length() > 0 && (QChar('.') == right.mid(1).at(0))) {//РµСЃР»Рё РїРѕСЃР»Рµ СѓРґР°Р»РµРЅРёСЏ РїРµСЂРІРѕР№ СЃС‚Р°РЅРµС‚ С‚РѕС‡РєР° С‚Рѕ РµРµ С‚РѕР¶Рµ СѓРґР°Р»СЏРµРј
                         right = right.mid(1);
                     }
                     tmp_text1 = left + right.mid(1);
@@ -156,7 +155,7 @@ void IpV4AddressEdit::keyPressEvent(QKeyEvent *key_) {
                 if (Qt::Key_Backspace == key_->key()) {
                     if ((left.length() > 0) && (QChar('.') == left.at(left.length()-1))) {
                         oldCursorPosition--;
-                        right.push_front('.');// первую точку переносим
+                        right.push_front('.');// РїРµСЂРІСѓСЋ С‚РѕС‡РєСѓ РїРµСЂРµРЅРѕСЃРёРј
                         left = left.left(left.length()-1);
                     }
                     QString leftleft = left.left(left.length()-1);
@@ -192,9 +191,9 @@ void IpV4AddressEdit::keyPressEvent(QKeyEvent *key_) {
                         tmp_text2 = left + key_->text();
                         if (rv__.validate(tmp_text2, crPos) != QValidator::Invalid) {
                             setText(tmp_text2);
-                            int crPos2 = tmp_text2.lastIndexOf(separator);// находим предыдущий сепаратор для разделения разрядов адреса
+                            int crPos2 = tmp_text2.lastIndexOf(separator);// РЅР°С…РѕРґРёРј РїСЂРµРґС‹РґСѓС‰РёР№ СЃРµРїР°СЂР°С‚РѕСЂ РґР»СЏ СЂР°Р·РґРµР»РµРЅРёСЏ СЂР°Р·СЂСЏРґРѕРІ Р°РґСЂРµСЃР°
                             crPos2++;
-                            if ((tmp_text2.mid(crPos2).toInt() > maxElementValueForAddSeparator) //если начиная с числа maxElementValueForAddSeparator нажали любую цифру то точно надо ставить разделитель
+                            if ((tmp_text2.mid(crPos2).toInt() > maxElementValueForAddSeparator) //РµСЃР»Рё РЅР°С‡РёРЅР°СЏ СЃ С‡РёСЃР»Р° maxElementValueForAddSeparator РЅР°Р¶Р°Р»Рё Р»СЋР±СѓСЋ С†РёС„СЂСѓ С‚Рѕ С‚РѕС‡РЅРѕ РЅР°РґРѕ СЃС‚Р°РІРёС‚СЊ СЂР°Р·РґРµР»РёС‚РµР»СЊ
                                 ||
                                 (tmp_text2.mid(crPos2).length() >= maxCharCountInGroup)
                             ) {
