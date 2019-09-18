@@ -3,7 +3,7 @@
 3. Find a job as a C / C ++ programmer.
 4. C/C++, Qt, SVN.
 5. 
-```
+```cpp
 /*
  * Copyright (c) Dmitriy Russkikh <russkih.dv@infotek.ru>
  * All rights reserved
@@ -63,7 +63,7 @@ private:
 #endif //QIPV4_ADDRESS_EDIT_H
 ```
 
-```
+```cpp
 /*
  * Copyright (c) Dmitriy Russkikh <russkih.dv@infotek.ru>
  * All rights reserved
