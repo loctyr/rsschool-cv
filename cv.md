@@ -1,5 +1,5 @@
 1. Dmitriy, Russkikh.
-2. Email: loctyr@gmail.com, Skype: gammon421/
+2. Email: loctyr@gmail.com, Skype: gammon421.
 3. Find a job as a C / C ++ programmer.
 4. C/C++, Qt, SVN.
 5. [ipv4addressedit.cpp](https://loctyr.github.io/rsschool-cv/ipv4addressedit.cpp) [ipv4addressedit.hpp](https://loctyr.github.io/rsschool-cv/ipv4addressedit.hpp)
